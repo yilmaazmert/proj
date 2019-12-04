@@ -149,3 +149,66 @@ sample :drum_cymbal_open, attack: 0.01, sustain: 0.3, release: 0.1Copy
 Now go and have fun putting envelopes over the samples. Try changing the rate too for really interesting results.
  
 3.5 - Partial Samples
+
+Bu kısım ile Sonic Pi’daki örnek oynatıcıyı incelemeyi tamamlıyoruz. Tekrar hatırlatalım. Şimdiye dek örnekleri nasıl çalacağımıza baktık:
+sample :loop_amen
+
+Sonra da onların hızını nasıl değiştireceğimizi gördük, yarı hızda çalmak gibi:
+sample :loop_amen, rate: 0.5
+
+Sonra şarkıyı nasıl yükselerek girecek şekilde ayarlayacağımızı:
+sample :loop_amen, rate: 0.5, attack: 1
+
+Ayrıca bir örneğin başını nasıl vurgulu bir şekilde çalabileceğimizin sustain:’e belli bir değer biçip attack ve release’i kısa değerler şeklinde ayarlanmasıyla elde edildiğini öğrendik: 
+
+sample :loop_amen, rate: 2, attack: 0.01, sustain: 0, release: 0.35
+
+Yine de, her zaman örneğin başından başlamak zorunda olmasak daha iyi olmaz mıydı? Veya sonunda bitirmek zorunda olmasak?
+Başlangıç noktası seçme
+Örneği keyfi bir başlangıç noktasından başlatmak 0 ile 1 arasında bir başlangıç değeri atamakla mümkün. 0, şarkının başlangıcı; 1, bitişi ve 0.5 ise tam ortası demektir. Şimdi “Amen Break”in yalnızca son yarısını oynatmayı deneyelim:
+sample :loop_amen, start: 0.5
+
+Son çeyreğine ne dersiniz:
+sample :loop_amen, start: 0.75
+Bitiş noktası seçme 
+Benzer biçimde, örnek için belirli bir bitiş noktası seçmek de mümkün. Amen Break’i yarıda keselim:
+sample :loop_amen, finish: 0.5
+Başlangıç ve Bitişi Belirtme
+Tabiki ikisini birleştirerek örneğin belirli bir kısmını da çaldırabiliriz. Mesela ortalarda küçük bir bölümünü:
+sample :loop_amen, start: 0.4, finish: 0.6
+
+Ya başlangıç noktasını bitişten sonraki bir değer olarak seçersek ne olur?
+sample :loop_amen, start: 0.6, finish: 0.4
+
+Havalı! Şarkı tersten çalıyor.
+Hız ile birleştirmek
+
+rate: adlı arkadaşımızı belirli bir kesimi seçtiğimiz bu özelliğe entegre edebiliriz. Örneğin ortalardan bir kısmı yavaşça çalmak için:
+
+sample :loop_amen, start: 0.5, finish: 0.7, rate: 0.2
+Kılıflarla birleştirmek
+Son olarak hepsini ADSR kılıflarımızla birleştirerek ilginç sonuçlar elde edebiliriz:
+sample :loop_amen, start: 0.5, finish: 0.8, rate: -0.2, attack: 0.3, release: 1
+
+ 
+3.6 – Dışarıdan Örnek Kullanma 
+Sonic Pi ile yüklü gelen örnekler hızlıca başlamanız için yardımcı olsa da, başka kaydedilmiş sesler ile de çalışmayı denemek isteyebilirsiniz. Buna geçmeden önce eserinizin taşınabilirliği üzerine konuşalım.
+Taşınabilirlik
+Şarkınızı tamamen yerleşik synth ve örnekler kullanarak yaparsanız, müziğinizi çoğaltmak için tek gereken şeyin güvenle kodunuz olduğunu belirtebiliriz. Bu harika. Böylece müziğinizi oldukça kolayca kodu paylaşarak yayabilirsiniz.
+
+Ancak, kendi önceden kaydedilmiş örneklerinizi kullanırsanız, bu özelliği kaybedersiniz. Zira müziğinizi çoğaltmak için diğer insanların yalnızca kodunuza değil, örneklerinize de ihtiyacı olacaktır. Bu da diğerlerinin sizin müziğinizi manipüle etme, mixleme ve üzerinde denemeler yapmasını zorlaştıracaktır. Tabi ki kendi örneklerinizi kullanmaktan alı koymasın bu sizi, yalnızca aklınızda bulunması gereken bir durum.
+Yerel örnekler
+Peki, bilgisayarınızdan nasıl belirli bir WAV, AIFF, veya FLAC dosyasını çalabilirsiniz? Tek yapmanız gereken dosya dizinini sample’a atmak olacaktır:
+
+# Raspberry Pi, Mac, Linux
+sample "/Users/sam/Desktop/my-sound.wav"
+# Windows
+sample "C:/Users/sam/Desktop/my-sound.wav"
+
+Sonic Pi otomatik olarak parçayı yükleyip çalacaktır. Ayrıca standart parameterelden de aynı şekilde yararlanabilirsiniz:
+
+# Raspberry Pi, Mac, Linux
+sample "/Users/sam/Desktop/my-sound.wav", rate: 0.5, amp: 0.3
+# Windows
+sample "C:/Users/sam/Desktop/my-sound.wav", rate: 0.5, amp: 0.3
+
