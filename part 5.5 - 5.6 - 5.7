@@ -1,0 +1,49 @@
+5.5 Fonksiyonlar
+
+Kod yazmaya başladığınız zaman, yazdığınız kodları daha toplu ve anlaşılılabilir yazmak için yollar arasınız. 
+Fonksiyonlar bu konuda size yardımcı olacak çok güçlü bir yoldur. Fonksiyonlar elimizdeki bir grup koda isim vermemizi sağlar.
+Haydi fonksiyonları inceleyelim.
+
+
+Fonksiyonları Tanımlamak:
+
+define :foo do
+  play 50
+  sleep 1
+  play 55
+  sleep 2
+end
+
+Yukarıda ismi foo olan yeni bir fonksiyon tanımladık. Bu işlemi eski arkadaşımız do/end bloğu ve define fonksiyonuyla yaptık.
+Define fonksiyonu sonrasında da fonksiyona vermek istediğimiz ismi yazdık. Fonksiyona foo ismini vermek zorunda değilsiniz. 
+Anlamlı ya da anlamsız herhangi bir isim verebilirsiniz ama anlamlı bir isim vermeniz işinizi daha kolaylaştırabilir.
+
+Fonksiyonunuzun başına : işaretini koymayı unutmayın.
+
+
+Fonksiyonları Çağırmak
+
+define :foo do
+  play 50
+  sleep 1
+  play 55
+  sleep 0.5
+end
+
+foo
+
+sleep 1
+
+2.times do
+  foo
+end
+
+Yarattığımız fonksiyonu istersek tekrarlama bloklarının içinde kullanabiliriz istersek play ya da sample fonksiyonlarının yazdığı 
+herhangi bir yerde kullanabiliriz. Bu, bizim kendimizi ifade etmemiz için güzel bir yol sunar ve bestemizde kullanmak için anlamlı
+kelimeler yaratmamızı sağlar.
+
+
+
+5.6 Değişkenler
+
+5.7 Thread Senkronizasyonu
