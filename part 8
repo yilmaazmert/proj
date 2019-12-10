@@ -1,0 +1,138 @@
+8 – Veri Yapıları
+
+Veri yapısı bir programcının alet takımında bulunan çok faydalı bir araçtır.
+
+Bazen birden fazla şeyi temsil etmeniz ve kullanmanız gerekebilir. Örneğin, birbiri ardına çalan bir dizi notaya sahip olmayı daha kullanışlı bulabilirsiniz. Programlama dilleri tam olarak bunu yapmanızı sağlayacak veri yapılarına sahiptir.
+
+Programcılara sunulan çok sayıda heyecan verici ve egzotik veri yapısı var- ve insanlar her zaman yeni veri yapıları icat edip bu sunulan yelpazeyi genişletiyor. Bununla beraber bizim şimdilik  basit veri yapısı olan listelerini inceleyeceğiz.
+
+Şimdi listelere giriş yapıcaz. Listelerin temel biçimlerini ve ölçek ve akorları temsil ederken nasıl kullanıldığını ele alacağız.
+
+
+8.1 - Listeler
+Bu bölümde çok kullanışlı bir veri yapısı olan listeleri inceleyeceğiz. Rastgele sıralama bölümünde listeden çalmak için rastgele nota seçerken kısaca listelere değinmiştik.
+
+play choose([50, 55, 62])
+
+Bu bölümde ölçek ve akorları temsil ederken kullanabiliceğimiz listeleri inceleyeceğiz. Öncelikle, nasıl akorun nasıl çalındığını tekrar edelim. Unutmayın ki eğer sleep fonksiyonunu kullanmazsak yazdığımız bütün sesler aynı anda duyulur.
+
+play 52
+play 55
+play 59
+
+Bu kodu yazabiliceğimiz başka yollar da var. Şimdi onlara göz atalım.
+
+
+Bir Listeyi Oynatmak
+
+Bütün notaları bir listenin içine yerleştirebiliriz: [52, 55, 59]. Daha sonrasında bu listenin başına play fonksiyonunu yazmamız yeterlidir.
+play [52, 55, 59]
+
+Böyle yazıldığında daha rahat okunur bir kod elde etmiş oluyoruz. Ayrıca notaların listeye koyularak çalınması diğer parametrelerin kullanılmasını da engellemez.
+
+play [52, 55, 59], amp: 0.3
+
+Aynı zamanda geleneksel nota isimlerini de kullanabilirsiniz.
+
+play [:E3, :G3, :B3]
+
+
+Bir Listeye Erişmek
+
+Listelerin bir diğer kullanışlı özelliği ise içerisinden bilgiyi alabilmemizdir. Bu kullağınıza biraz garip gelebilir ama aslında birinin size kitaptan 23. sayfayı açmanızı söylemesiyle aynıdır. Listelerde 23. indekste bulunan elemanın ne olduğunu öğrenebilirisiniz. Tek garip kısmı programlamada listelerin 1 yerine 0 ile başlamasıdır.
+
+Liste indekslerinde 1,2,3 gibi saymak yerine 0,1,2 diye sayılır.
+
+Aşağıdaki listeye göz atalım:
+
+[52, 55, 59]
+
+Bunda korkulacak hiçbir şey yok. Şimdi, listenin 2. elemanı nedir? Listenin 2. elemanı 55`tir. Şimdi bilgisayar bizim için bu cevabı verebilecek mi ona bakalım.
+
+
+puts [52, 55, 59][1]
+
+Eğer daha önce böyle bir şey görmediyseniz bu size biraz garip gelebilir. Ama bana güvenin görüldüğü kadar zor değil. Yukardaki satır üç parçadan oluşmaktadır : puts kelimesi ; 52, 55 ve 59`dan oluşan liste ve indeks [1].Öncellikle  Sonic Pi`yın sistemde cevabı yazdırmasını istediğimiz için puts kullanıyoruz. Daha sonra listeyi yazıyoruz ve son olarak yazdığımız indeks ile ikinci elemanının ne olduğunu soruyoruz. İndeksi köşeli parantez içine yazmamız lazım çünkü sayma işlemi 0`dan başlıyor,örneğin  ikinci eleman için olan indeks 1`dir.
+
+# indexes:  0   1   2
+           [52, 55, 59]
+
+
+puts [52, 55, 59] [1] kodunu çalıştırmayı deneyin, sonucun 55 olduğunu görüceksiniz. İndeksi değiştirerek, listeyi daha uzun bir liste haline getirerek listeleri nasıl kodunuzda kullanabiliceğinizi deneyin. 
+
+
+
+8.2 - Akorlar
+
+Sonic Pi akor isimlerini içinde barındırır ve bu akorları liste olarak döndürür.
+
+play chord(:E3, :minor)
+
+Bu normal listelerden daha hoş görünüyor ( ve bazı insanlar için okunması daha kolay.) Şimdi Sonic Pi`yın içinde başka hangi akorları barındırdığına bakalım.
+•	chord(:E3, :m7)
+•	chord(:E3, :minor)
+•	chord(:E3, :dim7)
+•	chord(:E3, :dom7)
+
+
+Arpej
+
+play_pattern fonksiyonunu kullanarak akorları kolayca arpeje çevirebiliriz.
+
+play_pattern chord(:E3, :m7)
+
+Yukardaki örneğin çok yavaş çaldığını görüyoruz. play_pattern fonksiyonu listedeki her nota için play fonksiyonunu çağırmadan önce sleep 1 fonksiyonuyla birbirinden ayırıyor. Zamanlamayı ayarlamak için  ve hızı arttırmak için fonksiyonunu play_pattern_timed kullanabilirsiniz.
+play_pattern_timed chord(:E3, :m7), 0.25
+
+Hatta, zamanlamayla ilgili bir liste yaparak yaptığımız zamanlama listesini döngü şeklinde koda ekleyebilriz.
+play_pattern_timed chord(:E3, :m13), [0.25, 0.5]
+
+
+Bu fonksiyon aynı zamanda aşağıdaki fonksiyona denktir:
+play 52
+sleep 0.25
+play 55
+sleep 0.5
+play 59
+sleep 0.25
+play 62
+sleep 0.5
+play 66
+sleep 0.25
+play 69
+sleep 0.5
+play 73
+
+Hangi şekilde yazmayı tercih edersiniz?
+
+
+
+8.3 - Ölçekler
+
+Random notes
+
+Discovering Chords and Scales
+
+8.4 - Rings
+
+Creating Rings
+
+
+Indexing Rings
+
+Using Rings
+
+Scales and Chords are Rings
+	
+Ring Constructors
+
+8.5 - Ring Chains
+
+Chain Commands
+
+Multiple Chains
+
+Immutability
+
+Available Chain Methods
+
