@@ -99,3 +99,59 @@ PART 2.1: İLK BİPLERİNİZ
   "b" ekleyin, play :Eb3 gibi.
   
   Şimdi kendini kaybet ve kendi tonlarını yapmanın tadını çıkar!
+  
+  **Birleştirici Ayarları: Genlik ve Pan**
+  İstediğiniz notayı çalmanıza izin verdiği gibi, SonicPi ses oluşturmanız ve sesi kontorl etmeniz için size bir sürü seçenek sunuyor. Bunların bir çoğunu bu öğreticide anlatacağız. Şimdilik sadece en yararlı ikisini açıklayacağız: _genlik_ ve _pan_. Önce gelin bunların ne olduğuna bakalım.
+  
+  **Seçenekler**
+  
+  Sonic Pi birleştiricileri için bir sürü seçeneği desteklemektedir. Seçenekler "play" kodu ile çaldığınız ve kulağımıza gelen sese etki eder. Her birleştiricinin sesi güzelleştirmek için kullanılan kendine özel seçenekleri vardır. Ancak, "amp:" gibi bazı seçenekler bir çok sese etki eder.
+  
+  Seçeneklerin iki büyük parçası vardır, isimleri ve değerleri. Örneğin, "peynir:" adında bir seçeneğiniz olabilir ve bunun değerini 1'e eşitlemek isteyebilirsiniz.
+  Seçenekler "play" kodundan sonra virgül kullanılarak çalıştırılır.
+  
+ |play 50, peynir: 1|
+  
+  (peynir: gerçek bir seçenek değil, sadece örnek göstermek için kullandık.)
+  
+  Virgül kullanarak birden fazla seçenek çağırabilisiniz:
+  
+ |play 50, peynir: 1, fasulyeler: 0.5|
+ 
+  Seçeneklerin sırası fark etmiyor, peynir ve fasulyelerin yerini değiştirebilirsiniz.
+  
+  Birleştiriciler tarafından tanınmayan seçenekler görmezden gelinir (saçma seçenek isimleri olan peynir ve fasulyeler gibi!)
+  
+  Eğer bir seçeneği yanlışlıkla birden fazla kez kullanırsanız son çağırdığınız değer uygulanır.
+  
+  |play 50, fasulyeler: 0.5, peynir: 1, yumurtalar: 0.1, fasulyeler: 2|
+  
+  Sonic Pi'daki çoğu şey seçenekleri kabul ediyor, bu yüzden seçenekleri öğrenmek için birazcık zaman ayırmanız kullanmanıza yeticektir. Şimdi biraz ilk seçeneğimiz "amp:" ile oynayalım!
+  
+  **Genişlik**
+  
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
