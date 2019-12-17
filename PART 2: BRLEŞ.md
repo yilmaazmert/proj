@@ -1,4 +1,5 @@
 **PART 2: BRLEŞ** 
+
   Tamam bu kadar intro yeterli. Biraz sese bakalım
 
   Bu bölümde brleşlerin (synth) çalıştırılması ve değiştirilmesini inceleyeceğiz. Brleş,ses çıkaran bir şey için süslü bir kelime olan 
