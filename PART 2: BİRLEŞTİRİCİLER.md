@@ -183,12 +183,53 @@
   Evet artık gidip sesi yönlendirmenin tadını çıkarabilirsin!
   
   ## Birleştiricileri Değiştirmek
-  Şu ana kadar bipler oluştururken yeterince eğlendik. Ancak büyük ihtimalle 
+  Şu ana kadar bipler oluştururken yeterince eğlendik. Ancak büyük ihtimalle klasik bip sesinden sıkılmaya başladın. Sonic Pi'ın tek sunduğu bu mu? Tabi ki canlı kodlamada sadece bip sesleri çalmaktan daha fazlası var ve bu bölümde Sonic Pi'ın bize sunduğu diğer heyecan verici sesleri keşfedeceğiz.
   
+  ### Birleştiriciler
+  Sonic Pi birleştirici diye adlandırdığı bir sürü enstrüman içeriyor. Örneğin örnekler (samples) önceden kaydedilmiş sesler içeriyor, birleştiriciler nasıl kontrol ettiğinize göre yeni sesler oluşturabiliyor (bunu bu bölümde detaylı bir şekilde inceleyeceğiz). Sonic Pi'da bulunan birleştiriciler oldukça güçlü ve bunları keşfedip denerken oldukça fazla eğleneceksiniz. Öncelikle kullanılması için bir birleştiriciyi nasıl seçeceğimizi öğrenelim.
   
+  Bu güzel seslerden biri _saw wave_ - gelin deneyelim:
+  ```
+  use_synth :saw
+  play 38
+  sleep 0.25
+  play 50
+  sleep 0.25
+  play 62
+  ```
+  Peki ya iki sesi karıştırmaya ne dersin? Önce biri sonra diğeri:
+  ```
+  use_synth :saw
+  play 38
+  sleep 0.25
+  play 50
+  sleep 0.25
+  use_synth :prophet
+  play 57
+  sleep 0.25
+  ```
+  Şimdi aynı anda:
+  ```
+  use_synth :tb303
+  play 38
+  sleep 0.25
+  use_synth :dsaw
+  play 50
+  sleep 0.25
+  use_synth :prophet
+  play 57
+  sleep 0.25
+  ```
+  Fark ettiğiniz üzere "use_synth" komutu sadece ondan sonraki "play" komutlarına etki ediyor. Bunu büyük bir şalter gibi düşünün, "play" komutu ona hangi birleştirici işaret ediyorsa onun sesini çıkarır. Bu şalteri yeni bir birleştiriciye "use_synth" komutu ile işaret edebilirsiniz.
   
-  
-  
+  ### Birleştiricileri Keşfetmek
+  Sonic Pi'ın size hangi birleştiricileri sunduğunu görmek için ekranın altındaki yardım penceresindeki Birleştirici seçeneğini kullanabilirsiniz. Seçmek için 20den fazla seçeneğin bulunuyor. Benim favorilerim aşağıda:
+  - :prophet
+  - :dsaw
+  - :fm
+  - :tb303
+  - :pulse
+  Şimdi biraz müziğin sırasında birleştiriciler arasında geçiş yapmanın tadını çıkar!
   
   
   
