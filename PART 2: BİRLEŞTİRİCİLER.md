@@ -182,7 +182,8 @@
   ```
   Evet artık gidip sesi yönlendirmenin tadını çıkarabilirsin!
   
-  
+  ## Birleştiricileri Değiştirmek
+  Şu ana kadar bipler oluştururken yeterince eğlendik. Ancak büyük ihtimalle 
   
   
   
