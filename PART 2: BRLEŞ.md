@@ -130,7 +130,30 @@ PART 2.1: İLK BİPLERİNİZ
   
   **Genişlik**
   
+  Genişlik sesin yüksekliğinin bilgisayarda gösterilmiş halidir. _Yüksek genişlik yüksek ses_ ve _düşük genişlik düşük ses_ yaratır. Zaman ve notaları belirtirmiş gibi, Sonic Pi genişlik değerlerini belirtmek için de sayılar kullanır. 0 genişlik sessizliğe neden olur (hiçbir şey duyamazsın) ve 1 de sesi normal yükseklik değerinde çalar. Genişliği 2, 10, 100 bile yapabilirsin. Ancak seslerin genişliği çok yüksek olursa, Sonic Pi bir kompresör ile bu sesleri bastırarak kulakların zarar görmesini engeller. Bu durum sesin boğuk ve garip çıkmasına sebep olabilir. Bu yüzden düşük genişlikler kullanmayı deneyin. Bu bastırmayı önlemek için 0 ile 0.5 arasındaki genişlikleri tercih edin.
   
+  Sesin genişliğini değiştirmek için, amp: seçeneğini kullanabilirsiniz. Örneğin yarım genişlikte çalmak için 0.5'i kullanın.
+  
+  |play 60, amp: 0.5 |
+  
+  Sesin genişliğini iki katına çıkarmak için 2 kullanın.
+  
+  |play 60, amp: 2|
+  
+  "amp:" seçeneği sadece çağırıldığı "play" komutunun genişliğini değiştirir. Diğer "play" komutlarına etki etmez.
+  
+  |play 60, amp: 0.5 |
+  |sleep 0.5 |
+  |play 65|
+  
+  Tabi ki her "play" komutu için farklı bir amp: değeri kullanabilirsiniz.
+  
+  |play 50, amp: 0.1 |
+  |sleep 0.25|
+  |play 55, amp: 0.2 |
+  |sleep 0.25|
+  |play 57, amp: 0.4 |
+  |play 62, amp: 1|
  
   
   
