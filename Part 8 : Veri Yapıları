@@ -165,12 +165,64 @@ Sonic Pi`yın sitesinde  hangi ölçek ve akorları içinde barındırdığını
 
 8.4 - Rings
 
-Creating Rings
+Standart listelerin bir diğer ilginç özelliği ringlerdir. Önceden programlama dili öğrendiyseniz ring buffers ve ring arrays kavramlarıyla 
+karşılaşmışsınızdır. Biz kısaca bunlardan ringler olarak bahsedeceğiz.
+
+Daha önceki bölümlerde indeks mekanizmasını kullanarak bir listeden nasıl istedğimiz bir elemanı elde edebiliceğimizi gördük.
+
+puts [52, 55, 59][1]
+
+Peki, 100. indeksi istersek ne olur? Görüldüğü üzere 100. indekste bir eleman yok. Sadece 3 elemanın olduğu bir listemiz var. Bu drurumda
+Sonic Pi  nil döndürür. nil hiçbir şey anlamına gelir.
+
+Bununla birlikte, elimizde bir sayaç olduğunu düşünelim.
+
+counter = 0
+notes = [52, 55, 59]
+
+Elimizdeki bu sayacı liste içerisindeki bir notaya ulaşmak için kullanabiliriz.
+
+puts notes[counter]
+
+Şu an elimizde 52 var. Peki sayacımızın içindeki rakamı arttırısak ne olur?
+
+counter = (inc counter)
+puts notes[counter]
+
+Çok iyi, şimdi de 55 elde ettik eğer bunu tekrar yaparsak da 59 elde ederiz. Peki 59 elde ettikten sonra tekrar aynı işlemi uygularsak ne
+olur. Listemizdeki sayılar bittiği için bize nil verir. Peki ya bir şekilde listenin başına dönseydik ve her şey baştan başlasaydı? İşte bu
+ringlerin ortaya çıktığı yer.
 
 
-Indexing Rings
 
-Using Rings
+Ring Yaratmak
+
+İki şekilde ring yaratabiliriz. Ring fonksiyonu ile beraber ringin elemanları olucak sayıları parametre olarak alabilirirz.
+
+(ring 52, 55, 59)
+
+Ya da bir listenin sonuna .ring ekleyerek o listeyi bir ringe çevirebiliriz.
+
+[52, 55, 59].ring
+
+
+Ringleri İndeksleme
+
+Elinizde bir ringiniz varsa bunu listeyei kullandığınız gibi kullanabilirsiniz. Tek farkı indeksleme olayıdır. Ringin büyüklüğüne bağlı kalmak 
+zorunda değilsiniz. İsterseniz büyüklüğünden daha büyük indeksler yazabilirsiniz isterseniz negatif indeksler yazabilirsiniz. Bütün indeksler
+size ringten bir eleman vericektir.
+
+(ring 52, 55, 59)[0] #=> 52
+(ring 52, 55, 59)[1] #=> 55
+(ring 52, 55, 59)[2] #=> 59
+(ring 52, 55, 59)[3] #=> 52
+(ring 52, 55, 59)[-1] #=> 59
+
+
+
+Ringleri Kullanma
+
+
 
 Scales and Chords are Rings
 	
