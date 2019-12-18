@@ -1,4 +1,4 @@
-# PART 2: BRLEŞ
+# PART 2: BİRLEŞTİRİCİ
 
   Tamam bu kadar intro yeterli. Biraz sese bakalım
 
