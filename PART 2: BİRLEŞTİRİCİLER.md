@@ -231,10 +231,61 @@
   - :pulse
   Şimdi biraz müziğin sırasında birleştiriciler arasında geçiş yapmanın tadını çıkar!
   
+  ## Sesi Kontrol Et!
   
+  Önceki bölümlerde "sleep" komutu ile seslerin arasındaki boşlukları nasıl ayarlayıp kullanabileceğimizi öğrenmiştik. Ancak şu ana kadar seslerin çalma süresini kontrol etmemiştik.
   
+  Sonic Pi bize iki oldukça yararlı kontrol mekanizması sağlıyor:
+  -sesin süresini ayarlamak
+  -sesin genişliğini ayarlamak
   
+  ### Süre
+  Süre çaldığımız sesin çalmaya devam ettiği uzunluğu belirtiyor. Daha büyük bir uzunluk sesi daha uzun süre boyunca duyacağımız anlamına geliyor.
   
+  ### Genişlik
+  
+  Her duyulabilir ses sessiz başlar ve biter ve bu iki süre içerisinde sessiz olmayan bölümler içerir. Bu sessiz olmayan bölümlerin ses yüksekliklerini değiştirebilirsiniz. Tıpkı gitar amfisinin sesini kısıp açmak gibi. Örneğin sessiz başlayıp, yavaşça ses seviyesini maksimuma çıkarıp o durumda beklettikten sonra hızlıca ses seviyesini 0'a çekmek gibi. Şimdi bu ses ayarlarına bir göz atalım.
+  
+  ### Salınım Etabı
+  
+  Özellikle belirtilmesi gerekmeden çalışan tek ses ayarı salınım süresidir. Bu birleştiricinin oluşturduğu sesin kesilmesi için geçen süredir. Bütün birleştiriciler için bu süre 1 vuruştur (60 BPM'de 1 saniye):
+  ```
+  play 70
+  ```
+  Bu nota 1 saniye boyunca duyulabilir. Hadi durma, say bakalım.
+  ```
+  play 60, release: 2
+  ```
+  Burada ise aynı ses 2 saniye boyunca duyulabilir.
+  
+  ### Atak Etabı
+  
+  Özellikle belirtilmedikçe bu ayar 0'dır yani ses yüksekliği 0'dan 1'e direk yükselir. Ancak siz sesin yavaşça yüksekliğinin artmasını istiyor olabilirsiniz. Bunun için "attack:" opsiyonunu deneyebilirsiniz. Bir deneyelim:
+  ```
+  play 60, attack: 2
+  sleep 3
+  play 65, attack: 0.5
+  ```
+  Birden fazla özelliği aynı anda kullanabilirsiniz. Örneğin kısa bir atak ve uzun bir salınım için şu kodu dene:
+  ```
+  play 60, attack: 0.7, release: 4
+  ```
+  ### Devamlılık Etabı
+  
+  Atak ve salınım süresini spesifik bir şekilde belirleyebildiğin gibi, aynı zamanda sesin devam edeceği süreyi de belirleyebilirsin. Bu sesin maksimum yükseklikte çalacağı süreyi belirtir.
+  ```
+  play 60, attack: 0.3, sustain: 1, release: 1
+  ```
+  Devamlılık süresi daha güzel bir giriş veya çıkış yapabilmek için oldukça önemlidir. Tabi ki attack: ve release: özelliklerini 0 yapıp sesi daima maksimum genişlikte çalabilirsiniz, fakat salınım süresinin 0 olması sesin güzel duyulmamasına yol açabilir bu yüzden 0.2 gibi düşük bir değer kullanmak daha mantıklı olur.
+  
+  ### Düşüş Etabı
+  
+  Ekstra bir kontrol olarak aynı zamanda düşüş süresi de belirtebilirsiniz. Bu etap atak ve salınım etabı arasında olup sesin atak seviyesinden düşüş seviyesine indiği süreyi belirtir. Özellikle belirtilmediği sürece decay: seçeneğinin değeri 0'dır ve hem atak hem düşüş seviyesi 1'dir bu yüzden düşüş etabının görülebilmesi için bu seviyelerin spesifik olarak belirlenmesi gerekmektedir.
+  ```
+  play 60, attack: 0.1, attack_level: 1, decay: 0.2, sustain_level: 0.4, sustain: 1, release: 0.5
+  ```
+  ### Düşüş Seviyesi
+  Özellikle belirtilmediği sürece düşüş seviyesi devamlılık seviyesi ile aynıdır fakat siz düşüş seviyesini 
   
   
   
