@@ -12,9 +12,9 @@
 
 PART 2.1: İLK BİPLERİNİZ
   Aşağıdaki koda bakın:
-  
+  ```
   play 70
-  
+  ```
   İşte her şey burada başlıyor.Durma, kodu kopyalayıp uygulamanın üstündeki pencereye yapıştır (Çalıştır butonunun altındaki büyük 
   beyaz boşluk).Şimdi, Çalıştır butonuna bas.
   
@@ -23,29 +23,34 @@ PART 2.1: İLK BİPLERİNİZ
   Etkileyici.Tekrar bas. Ve tekrar. Ve tekrar...
   
   Vay, şahane. Eminim bunu bütün gün yapabilirsin. Ama dur, kendini sonsuz bir bip döngüsünde kaybetmeden önce, sayıyı değiştirmeyi dene
-  
+  ```
   play 75
-  
+  ```
   Aradaki farkı duydun mu ? Daha düşük bir sayı dene: 
-  
+  ```
   play 60
-  
+  ```
   Gördüğün üzere, daha düşük sayılar daha kalın sesler çıkarırken yüksek sayılar daha ince sesler çıkarıyor. Tıpkı piyano gibi,
   piyanonun sol tarafındaki tuşlar kalın ve sağ tarafındaki tuşlar ince sesler çıkarıyor. Ayrıca kullandığımız sayılar aslında piyanodan
   bağımsız değil. play 47 aslında piyanodaki 47. notayı çal anlamına geliyor. Bu da demek oluyor ki play 48 bir nota yükseltiyor.
   
-  4. oktavdaki C akoru 60 numaraya denk geliyor. Hadi çalmayı dene: play 60
-  
+  4. oktavdaki C akoru 60 numaraya denk geliyor. Hadi çalmayı dene: 
+  ```
+  play 60
+  ```
   Merak etme eğer bu şu an sana bir şey ifade etmiyorsa, ilk başladığımda bana da bir şey ifade etmiyordu. Şu an tek önemli olan
   düşük sayıların kalın yüksek sayıların ince sesler çıkardığını bilmen.
   
   AKORLAR
   
   Nota çalmak bir miktar eğlenceli, ama bir kaçını aynı anda çalmak çok daha iyi.Dene bakalım:
+  ```
   play 72
-  play 75
-  play 79
   
+  play 75
+  
+  play 79
+  ```
   Jazımsı! Sonuç olarak, birden fazla play yazdığında, hepsi aynı anda çalıyor. Kendin dene, hangi notalar birlikte güzel hangileri 
   de berbat ses çıkarıyor. Gözlemle, araştır ve kendin için bul.
   
@@ -53,23 +58,27 @@ PART 2.1: İLK BİPLERİNİZ
   
   Evet, nota ve akor çalmak eğlenceli, ama melodi çalmak? Ya notaları aynı anda değil de arka arkaya çalmak istiyorsan? Bu da kolay
   sadece notalar arasında uyumalısın (sleep):
-  
+  ```
   play 72
-  sleep 1 
-  play 75
-  sleep 1 
-  play 79
   
+  sleep 1 
+  
+  play 75
+  
+  sleep 1 
+  
+  play 79
+  ```
   Ne kadar güzel, minik bir arpej. Peki sleep 1 komutundaki 1 ne demek? Bu sayı uyuma süresi anlamına geliyor. Tam olarak 1 darbe
   süresinde uyumak anlamına geliyor. Arpejimizi daha hızlı yapmak istiyorsak ne yapmalıyız? O zaman da daha kısa uyku komutları
   kullanmalıyız. Yarısını (0.5) kullanmaya ne dersiniz.
-  
+  ```
   play 72
   sleep 0.5
   play 75
   sleep 0.5
   play 79
-  
+  ```
   Nasıl daha hızlı çaldığını fark ettin mi? Şimdi kendin dene, zamanı değiştir - farklı zaman ve notalar kullan.
   
   Denenebilecek başka bir şey de play 52.3 ve play 52.63 gibi ara notalar çalmak. Bütün notalara takılı kalmaya hiç gerek yok.
@@ -79,22 +88,30 @@ PART 2.1: İLK BİPLERİNİZ
   
   Birazcık müzik bilgisi olanlar olarak (eğer değilseniz de önemli değil, eğlenmek için bilmenize gerek yok) C ve F# gibi nota isimleri
   kullanarak melodi yazmak isteyebilirsiniz. SonicPi arkanızda! Aşağıdaki şekilde yapabilirsiniz
-  
+  ```
   play :C
-  sleep 0.5
-  play :D
-  sleep 0.5
-  play :E
   
+  sleep 0.5
+  
+  play :D
+  
+  sleep 0.5
+  
+  play :E
+  ```
   Notanızın pembe olması için harften önce ":" koymayı unutmayın. Ayrıca notanın ardından sayı ekleyerek kullanmak istediğiniz
   oktavı belirtebilirsiniz.
-  
+  ```
   play :C3
-  sleep 0.5
-  play :D3
-  sleep 0.5
-  play :E4
   
+  sleep 0.5
+  
+  play :D3
+  
+  sleep 0.5
+  
+  play :E4
+  ```
   Eğer bir notayı daha tiz yapmak isterseniz nota harfinden sonra "s" eklemeyi deneyin, play :Fs3 gibi ve bemol yapmak isterseniz
   "b" ekleyin, play :Eb3 gibi.
   
@@ -109,23 +126,23 @@ PART 2.1: İLK BİPLERİNİZ
   
   Seçeneklerin iki büyük parçası vardır, isimleri ve değerleri. Örneğin, "peynir:" adında bir seçeneğiniz olabilir ve bunun değerini 1'e eşitlemek isteyebilirsiniz.
   Seçenekler "play" kodundan sonra virgül kullanılarak çalıştırılır.
-  
- |play 50, peynir: 1|
-  
+ ``` 
+ play 50, peynir: 1
+  ```
   (peynir: gerçek bir seçenek değil, sadece örnek göstermek için kullandık.)
   
   Virgül kullanarak birden fazla seçenek çağırabilisiniz:
-  
- |play 50, peynir: 1, fasulyeler: 0.5|
- 
+ ``` 
+ play 50, peynir: 1, fasulyeler: 0.5
+ ```
   Seçeneklerin sırası fark etmiyor, peynir ve fasulyelerin yerini değiştirebilirsiniz.
   
   Birleştiriciler tarafından tanınmayan seçenekler görmezden gelinir (saçma seçenek isimleri olan peynir ve fasulyeler gibi!)
   
   Eğer bir seçeneği yanlışlıkla birden fazla kez kullanırsanız son çağırdığınız değer uygulanır.
-  
-  |play 50, fasulyeler: 0.5, peynir: 1, yumurtalar: 0.1, fasulyeler: 2|
-  
+  ```
+  play 50, fasulyeler: 0.5, peynir: 1, yumurtalar: 0.1, fasulyeler: 2
+  ```
   Sonic Pi'daki çoğu şey seçenekleri kabul ediyor, bu yüzden seçenekleri öğrenmek için birazcık zaman ayırmanız kullanmanıza yeticektir. Şimdi biraz ilk seçeneğimiz "amp:" ile oynayalım!
   
   **Genişlik**
@@ -133,28 +150,29 @@ PART 2.1: İLK BİPLERİNİZ
   Genişlik sesin yüksekliğinin bilgisayarda gösterilmiş halidir. _Yüksek genişlik yüksek ses_ ve _düşük genişlik düşük ses_ yaratır. Zaman ve notaları belirtirmiş gibi, Sonic Pi genişlik değerlerini belirtmek için de sayılar kullanır. 0 genişlik sessizliğe neden olur (hiçbir şey duyamazsın) ve 1 de sesi normal yükseklik değerinde çalar. Genişliği 2, 10, 100 bile yapabilirsin. Ancak seslerin genişliği çok yüksek olursa, Sonic Pi bir kompresör ile bu sesleri bastırarak kulakların zarar görmesini engeller. Bu durum sesin boğuk ve garip çıkmasına sebep olabilir. Bu yüzden düşük genişlikler kullanmayı deneyin. Bu bastırmayı önlemek için 0 ile 0.5 arasındaki genişlikleri tercih edin.
   
   Sesin genişliğini değiştirmek için, amp: seçeneğini kullanabilirsiniz. Örneğin yarım genişlikte çalmak için 0.5'i kullanın.
-  
-  |play 60, amp: 0.5 |
-  
+  ```
+  play 60, amp: 0.5 
+  ```
   Sesin genişliğini iki katına çıkarmak için 2 kullanın.
-  
-  |play 60, amp: 2|
-  
+  ```
+  play 60, amp: 2
+  ```
   "amp:" seçeneği sadece çağırıldığı "play" komutunun genişliğini değiştirir. Diğer "play" komutlarına etki etmez.
-  
-  |play 60, amp: 0.5 |
-  |sleep 0.5 |
-  |play 65|
-  
+  ```
+  play 60, amp: 0.5 
+  sleep 0.5 
+  play 65
+  ```
   Tabi ki her "play" komutu için farklı bir amp: değeri kullanabilirsiniz.
-  
-  |play 50, amp: 0.1 |
-  |sleep 0.25|
-  |play 55, amp: 0.2 |
-  |sleep 0.25|
-  |play 57, amp: 0.4 |
-  |play 62, amp: 1|
- 
+  ```
+  play 50, amp: 0.1
+  sleep 0.25
+  play 55, amp: 0.2
+  sleep 0.25
+  play 57, amp: 0.4
+  sleep 0.25
+  play 62, amp: 1
+ ```
   
   
   
