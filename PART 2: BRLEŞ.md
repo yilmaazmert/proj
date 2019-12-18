@@ -1,4 +1,4 @@
-**PART 2: BRLEŞ** 
+# PART 2: BRLEŞ
 
   Tamam bu kadar intro yeterli. Biraz sese bakalım
 
@@ -10,7 +10,7 @@
   Sonic Pi arayüzünün basitliğine aldanmayın. Eğer ses üzerinde daha sofistike değişiklikler yapmayı planlıyorsanız göründüğünden
   çok daha derinlere gidebilirsiniz.Kemerlerinizi bağlayın!
 
-PART 2.1: İLK BİPLERİNİZ
+## PART 2.1: İLK BİPLERİNİZ
   Aşağıdaki koda bakın:
   ```
   play 70
@@ -54,7 +54,7 @@ PART 2.1: İLK BİPLERİNİZ
   Jazımsı! Sonuç olarak, birden fazla play yazdığında, hepsi aynı anda çalıyor. Kendin dene, hangi notalar birlikte güzel hangileri 
   de berbat ses çıkarıyor. Gözlemle, araştır ve kendin için bul.
   
-  MELODİ
+## MELODİ
   
   Evet, nota ve akor çalmak eğlenceli, ama melodi çalmak? Ya notaları aynı anda değil de arka arkaya çalmak istiyorsan? Bu da kolay
   sadece notalar arasında uyumalısın (sleep):
@@ -84,7 +84,7 @@ PART 2.1: İLK BİPLERİNİZ
   Denenebilecek başka bir şey de play 52.3 ve play 52.63 gibi ara notalar çalmak. Bütün notalara takılı kalmaya hiç gerek yok.
   Biraz dene ve eğlenmene bak.
   
-  GELENEKSEL NOTA İSİMLERİ
+###  GELENEKSEL NOTA İSİMLERİ
   
   Birazcık müzik bilgisi olanlar olarak (eğer değilseniz de önemli değil, eğlenmek için bilmenize gerek yok) C ve F# gibi nota isimleri
   kullanarak melodi yazmak isteyebilirsiniz. SonicPi arkanızda! Aşağıdaki şekilde yapabilirsiniz
@@ -117,10 +117,10 @@ PART 2.1: İLK BİPLERİNİZ
   
   Şimdi kendini kaybet ve kendi tonlarını yapmanın tadını çıkar!
   
-  **Birleştirici Ayarları: Genlik ve Pan**
+ ## Birleştirici Ayarları: Genlik ve Pan
   İstediğiniz notayı çalmanıza izin verdiği gibi, SonicPi ses oluşturmanız ve sesi kontorl etmeniz için size bir sürü seçenek sunuyor. Bunların bir çoğunu bu öğreticide anlatacağız. Şimdilik sadece en yararlı ikisini açıklayacağız: _genlik_ ve _pan_. Önce gelin bunların ne olduğuna bakalım.
   
-  **Seçenekler**
+ ## Seçenekler
   
   Sonic Pi birleştiricileri için bir sürü seçeneği desteklemektedir. Seçenekler "play" kodu ile çaldığınız ve kulağımıza gelen sese etki eder. Her birleştiricinin sesi güzelleştirmek için kullanılan kendine özel seçenekleri vardır. Ancak, "amp:" gibi bazı seçenekler bir çok sese etki eder.
   
@@ -145,7 +145,7 @@ PART 2.1: İLK BİPLERİNİZ
   ```
   Sonic Pi'daki çoğu şey seçenekleri kabul ediyor, bu yüzden seçenekleri öğrenmek için birazcık zaman ayırmanız kullanmanıza yeticektir. Şimdi biraz ilk seçeneğimiz "amp:" ile oynayalım!
   
-  **Genişlik**
+  ## Genişlik
   
   Genişlik sesin yüksekliğinin bilgisayarda gösterilmiş halidir. _Yüksek genişlik yüksek ses_ ve _düşük genişlik düşük ses_ yaratır. Zaman ve notaları belirtirmiş gibi, Sonic Pi genişlik değerlerini belirtmek için de sayılar kullanır. 0 genişlik sessizliğe neden olur (hiçbir şey duyamazsın) ve 1 de sesi normal yükseklik değerinde çalar. Genişliği 2, 10, 100 bile yapabilirsin. Ancak seslerin genişliği çok yüksek olursa, Sonic Pi bir kompresör ile bu sesleri bastırarak kulakların zarar görmesini engeller. Bu durum sesin boğuk ve garip çıkmasına sebep olabilir. Bu yüzden düşük genişlikler kullanmayı deneyin. Bu bastırmayı önlemek için 0 ile 0.5 arasındaki genişlikleri tercih edin.
   
