@@ -41,7 +41,7 @@
   Merak etme eğer bu şu an sana bir şey ifade etmiyorsa, ilk başladığımda bana da bir şey ifade etmiyordu. Şu an tek önemli olan
   düşük sayıların kalın yüksek sayıların ince sesler çıkardığını bilmen.
   
-  AKORLAR
+###  AKORLAR
   
   Nota çalmak bir miktar eğlenceli, ama bir kaçını aynı anda çalmak çok daha iyi.Dene bakalım:
   ```
@@ -54,7 +54,7 @@
   Jazımsı! Sonuç olarak, birden fazla play yazdığında, hepsi aynı anda çalıyor. Kendin dene, hangi notalar birlikte güzel hangileri 
   de berbat ses çıkarıyor. Gözlemle, araştır ve kendin için bul.
   
-## MELODİ
+### MELODİ
   
   Evet, nota ve akor çalmak eğlenceli, ama melodi çalmak? Ya notaları aynı anda değil de arka arkaya çalmak istiyorsan? Bu da kolay
   sadece notalar arasında uyumalısın (sleep):
@@ -90,26 +90,18 @@
   kullanarak melodi yazmak isteyebilirsiniz. SonicPi arkanızda! Aşağıdaki şekilde yapabilirsiniz
   ```
   play :C
-  
   sleep 0.5
-  
   play :D
-  
   sleep 0.5
-  
   play :E
   ```
   Notanızın pembe olması için harften önce ":" koymayı unutmayın. Ayrıca notanın ardından sayı ekleyerek kullanmak istediğiniz
   oktavı belirtebilirsiniz.
   ```
   play :C3
-  
   sleep 0.5
-  
   play :D3
-  
   sleep 0.5
-  
   play :E4
   ```
   Eğer bir notayı daha tiz yapmak isterseniz nota harfinden sonra "s" eklemeyi deneyin, play :Fs3 gibi ve bemol yapmak isterseniz
@@ -120,7 +112,7 @@
  ## Birleştirici Ayarları: Genlik ve Pan
   İstediğiniz notayı çalmanıza izin verdiği gibi, SonicPi ses oluşturmanız ve sesi kontorl etmeniz için size bir sürü seçenek sunuyor. Bunların bir çoğunu bu öğreticide anlatacağız. Şimdilik sadece en yararlı ikisini açıklayacağız: _genlik_ ve _pan_. Önce gelin bunların ne olduğuna bakalım.
   
- ## Seçenekler
+ ### Seçenekler
   
   Sonic Pi birleştiricileri için bir sürü seçeneği desteklemektedir. Seçenekler "play" kodu ile çaldığınız ve kulağımıza gelen sese etki eder. Her birleştiricinin sesi güzelleştirmek için kullanılan kendine özel seçenekleri vardır. Ancak, "amp:" gibi bazı seçenekler bir çok sese etki eder.
   
@@ -145,7 +137,7 @@
   ```
   Sonic Pi'daki çoğu şey seçenekleri kabul ediyor, bu yüzden seçenekleri öğrenmek için birazcık zaman ayırmanız kullanmanıza yeticektir. Şimdi biraz ilk seçeneğimiz "amp:" ile oynayalım!
   
-  ## Genişlik
+  ### Genişlik
   
   Genişlik sesin yüksekliğinin bilgisayarda gösterilmiş halidir. _Yüksek genişlik yüksek ses_ ve _düşük genişlik düşük ses_ yaratır. Zaman ve notaları belirtirmiş gibi, Sonic Pi genişlik değerlerini belirtmek için de sayılar kullanır. 0 genişlik sessizliğe neden olur (hiçbir şey duyamazsın) ve 1 de sesi normal yükseklik değerinde çalar. Genişliği 2, 10, 100 bile yapabilirsin. Ancak seslerin genişliği çok yüksek olursa, Sonic Pi bir kompresör ile bu sesleri bastırarak kulakların zarar görmesini engeller. Bu durum sesin boğuk ve garip çıkmasına sebep olabilir. Bu yüzden düşük genişlikler kullanmayı deneyin. Bu bastırmayı önlemek için 0 ile 0.5 arasındaki genişlikleri tercih edin.
   
@@ -173,6 +165,22 @@
   sleep 0.25
   play 62, amp: 1
  ```
+  ### Pan
+  Kullanması keyifli bir diğer seçeneğimiz ise sesin çıkış kaynağını kontrol eden "pan:" komutu. Sesi sola yönlendirmek sesi sol hoparlörden, sağa yönlendirmek ise sesi sağ hoparlörden duymak anlamına gelir. Sonic Pi'da sesi tamamen sona yönlendirmek için "-1", ortada tutmak için "0" ve sağa yönlendirmek için "1" değerlerini kullanırız. Ancak tabi ki -1 ve 1 arasındaki herhangi bir değeri kullanabiliriz.
+  
+  Şimdi bir sesi sol hoparlörden çalalım:
+  ```
+  play 60, pan: -1
+  ```
+  Şimdi ise sağ hoparlörden çalalım:
+  ```
+  play 60, pan: 1
+  ```
+  Son olarak da iki hoparlörü birlikte kullanalım:
+  ```
+  play 60, pan: 0
+  ```
+  Evet artık gidip sesi yönlendirmenin tadını çıkarabilirsin!
   
   
   
