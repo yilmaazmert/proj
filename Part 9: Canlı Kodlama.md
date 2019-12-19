@@ -29,7 +29,7 @@ Eğer bu size karmaşık geliyorsa, geriye gidin, thread ve fonksiyonlarla ilgil
 Yukarıda 50. notayı çalan ve 1 vuruş boyunca uyuyan bir fonksiyonumuz var ve :looper adını verdiğimiz bir "thread" bu my_loop fonksiyonunu durmadan çağırıp döngüye sokuyor.
 Eğer bu kodu çalıştırırsanız 1 vuruş arayla kendini durmadan tekrar eden 50. notayı duyacaksınız.
 
-## Kodu Değiştirmek
+### Kodu Değiştirmek
 İşte eğlence tam olarak burada başlıyor. Bir önceki bölümdeki kod çalışmaya devam ederken 50 yi farklı bir sayıya, diyelim ki 55, çevirip tekrar çalıştır butonuna bastığınızda ses değişir.Canlı olarak!
 
 Bu yaptığımız işlem yeni bir katman oluşturmadı çünkü kullandığımız adlandırılmış "thread" aynı ada sahip bir tane çalıştırmaya izin veriyor. Ayrıca, ses değişti çünkü fonksiyonu yeniden tanımladık. :my_loop fonksiyonuna yeni bir tanım verdik ve :looper bir sonraki çalışımızda yeni tanımı çalmaya başladı.
@@ -70,9 +70,48 @@ end
 İşte şimdi işler daha eğlenceli hale geliyor!
 Ancak hemen fonksiyonlar ve "thread"'ler kullanıp canlı kodlamaya başlamadan önce bir sonraki bölümde canlı döngüler (live_loop) bölümünü de okuyun, Sonic Pi'daki kodlama şeklinizi tamamen değiştirecek...
 
+## Canlı Döngüler
 
+Pekala, bu bölüm tam bir cevher. Eğer sadece bir bölüm okuyacaksanız o bölüm bu olmalı. Eğer canlı kodlamanın gereklilikleri bölümünü okuduysanız canlı döngü (live_loop) daha fazla kod yazma gerektirmeden oradakileri yapmanın yolu.
 
-
+Eğer bir önceki bölümü okumadıysanız, live_loop Sonic Pi ile coşmanın en iyi yolu.
+Hadi çalalım. Aşağıdaki kodu yeni bir kanala yaz:
+```
+live_loop :foo do
+  play 60
+  sleep 1
+end 
+```
+Şimdi Çalıştır tuşuna bas. Her vuruşta basit bir bip sesi duyuyorsun, hiç eğlenceli değil. Ancak henüz Dur butonuna basma. 60'ı 65 haline getir ve tekrardan Çalıştır butonuna bas.
+Vay canına bir vuruş bile kaçırmadan ses otomatik olarak değişti. İşte bu canlı kodlama!
+Neden daha bas haline getirmiyosun? Sadece çalarken kodunu güncelle:
+```
+live_loop :foo do
+  use_synth :prophet
+  play :e1, release: 8
+  sleep 8
+end
+```
+Şimdi Çalıştır butonuna bas.
+Biraz davul ekleyelim:
+```
+live_loop :foo do
+  sample :loop_garzul
+  use_synth :prophet
+  play :e1, release: 8
+  sleep 8
+end 
+```
+Notayı e1'den c1 e değiştir:
+```
+live_loop :foo do
+  sample :loop_garzul
+  use_synth :prophet
+  play :c1, release: 8
+  sleep 8
+end 
+```
+Şimdi beni takip etmeyi bırak ve kendi başına bi şeyler dene! Eğlenmene bak!
 
 
 
