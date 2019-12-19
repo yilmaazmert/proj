@@ -46,9 +46,7 @@
   Nota çalmak bir miktar eğlenceli, ama bir kaçını aynı anda çalmak çok daha iyi.Dene bakalım:
   ```
   play 72
-  
   play 75
-  
   play 79
   ```
   Jazımsı! Sonuç olarak, birden fazla play yazdığında, hepsi aynı anda çalıyor. Kendin dene, hangi notalar birlikte güzel hangileri 
@@ -60,13 +58,9 @@
   sadece notalar arasında uyumalısın (sleep):
   ```
   play 72
-  
   sleep 1 
-  
   play 75
-  
   sleep 1 
-  
   play 79
   ```
   Ne kadar güzel, minik bir arpej. Peki sleep 1 komutundaki 1 ne demek? Bu sayı uyuma süresi anlamına geliyor. Tam olarak 1 darbe
@@ -285,10 +279,21 @@
   play 60, attack: 0.1, attack_level: 1, decay: 0.2, sustain_level: 0.4, sustain: 1, release: 0.5
   ```
   ### Düşüş Seviyesi
-  Özellikle belirtilmediği sürece düşüş seviyesi devamlılık seviyesi ile aynıdır fakat siz düşüş seviyesini 
+  Özellikle belirtilmediği sürece düşüş seviyesi devamlılık seviyesi ile aynıdır fakat siz düşüş seviyesini tam kontrol elde etmek için farkı değerlere eşitleyebilirsiniz.
+  ```
+  play 60, attack: 0.1, attack_level: 1, decay: 0.2, decay_level: 0.3, sustain: 1, sustain_level: 0.4, release: 0.5
+  ```
+  ## Özet
+  Kısaca özetlemek gerekirse ses ayarlarımız şunlardır:
+  1. attack - sesin genişliğinin 0'dan attack_level'a çıktığı süre,
+  2. decay - genişliğin attack_level'dan decay_level'a giderken geçen süre,
+  3. sustain - genişliğin decay_level'dan sustain_level'a giderken geçen süre,
+  4. release - genişliğin sustain_level'dan 0'a inerken geçen süre
   
-  
-  
+  Çaldığımız sesin süresinin üstte belirtilen ses ayarlarının sürelerinin toplamı olduğunu bilmek önemli bir detay. Örneğin altta verilen örneğin süresi 0.5 + 1 + 2 + 0.5 = 4 vuruştur:
+  ```
+  play 60, attack: 0.5, attack_level: 1, decay: 1, sustain_level: 0.4, sustain: 2, release: 0.5 
+  ```
   
   
   
