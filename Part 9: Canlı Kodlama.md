@@ -113,6 +113,67 @@ end
 ```
 Şimdi beni takip etmeyi bırak ve kendi başına bi şeyler dene! Eğlenmene bak!
 
+## Çoklu Canlı Döngüler
+Aşağıdaki döngüyü gözden geçirelim:
+```
+live_loop :foo do
+  play 50
+  sleep 1
+end 
+```
+Neden :foo adına ihtiyaç olduğunu merak etmiş olabilirsin. Bu isim önemli çünkü döngünün diğer döngülerden farklı olduğunu belirtiyor.
+
+_Aynı ada sahip iki döngü asla aynı anda çalışamaz._ 
+
+Bu da eğer birden fazla döngünün aynı anda çalmasını istiyorsak onlara farklı isimler vermemiz gerektiğini gösteriyor.
+```
+live_loop :foo do
+  use_synth :prophet
+  play :c1, release: 8, cutoff: rrand(70, 130)
+  sleep 8
+end
+
+live_loop :bar do
+  sample :bd_haus
+  sleep 0.5
+end 
+```
+Şimdi iki döngüyü de özgürce geliştirebilir ya da değiştirebilirsin ve bir sıkıntı yaşamazsın.
+
+### Canlı Döngüleri Senkronize Etmek
+
+Çoktan fark etmişsinizdir ki canlı döngüler otomatik olarak sıra mekanizmasıyla birlikte çalışıyor. Biz de bu sıraları senkronize ederek bir şeyi durdurmamız gerekmeden uyumlu hale getirebiliriz.
+Şu düzgün senkronize edilmemiş kodu göz önünde bulunduralım:
+```
+live_loop :foo do
+  play :e4, release: 0.5
+  sleep 0.4
+end
+
+live_loop :bar do
+  sample :bd_haus
+  sleep 1
+end 
+```
+Bakalım zamanlamayı kodu durdurmadan düzeltebilecek miyiz. Öncelikle, :foo döngüsündeki sleep komutunu 1 ile uyumlu hale getirelim, 0.5 işimizi görücektir:
+```
+live_loop :foo do
+  play :e4, release: 0.5
+  sleep 0.5
+end
+
+live_loop :bar do
+  sync :foo
+  sample :bd_haus
+  sleep 1
+end
+```
+Vay canına, her şey çok daha uyumlu çalıştı - hiç bir şeyi durdurmadan.
+Şimdi git ve canlı döngüler ile canlı kodla!
+
+
+
+
 
 
 
